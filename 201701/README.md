@@ -67,6 +67,62 @@
 ```
 - 添加一个entry名叫为vendors，并把vendors设置为所需要的资源库，CommonsChunk会自动提取指定库至vendors中。
 
+### 方案二、通过 externals 配置来提取常用库
+- 按照官方文档的解释，如果我们想引用一个库，但是又不想让webpack打包，并且又不影响我们在程序中以CMD、AMD或者window/global全局等方式进行使用，那就可   以通过配置externals。这个功能主要是用在创建一个库的时候用的，但是也可以在我们项目开发中充分使用。
+  
+- 假设：我们开发了一个自己的库，里面引用了lodash这个包，经过webpack打包的时候，发现如果把这个lodash包打入进去，打包文件就会非常大。那么我们就可以     externals的方式引入。也就是说，自己的库本身不打包这个lodash，需要用户环境提供
+
+- 在实际项目开发过程中，我们并不需要实时调试各种库的源码，这时候就可以考虑使用external选项了。
+
+> 简单来说external就是把我们的依赖资源声明为一个外部依赖，然后通过script外链脚本引入。这也是我们早期页面开发中资源引入的一种翻版，只是通过配置后可以   告知webapck遇到此类变量名时就可以不用解析和编译至模块的内部文件中，而改用从外部变量中读取，这样能极大的提升编译速度，同时也能更好的利用CDN来实现     缓存。
+
+- external的配置相对比较简单，只需要完成如下三步：
+
+###### 1、在页面中加入需要引入的lib地址，如下：
+```
+  <head>
+<script src="//cdn.bootcss.com/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/underscore.min.js"></script>
+<script src="/static/common/react.min.js"></script>
+<script src="/static/common/react-dom.js"></script>
+<script src="/static/common/react-router.js"></script>
+<script src="/static/common/immutable.js"></script>
+</head>  
+```
+
+###### 2、在webapck.config.js中加入external配置项：
+```
+  module.export = {
+    externals: {
+        'react-router': {
+            amd: 'react-router',
+            root: 'ReactRouter',
+            commonjs: 'react-router',
+            commonjs2: 'react-router'
+        },
+        react: {
+            amd: 'react',
+            root: 'React',
+            commonjs: 'react',
+            commonjs2: 'react'
+        },
+        'react-dom': {
+            amd: 'react-dom',
+            root: 'ReactDOM',
+            commonjs: 'react-dom',
+            commonjs2: 'react-dom'
+        }
+    }
+}
+```
+2. loda....
+```
+  
+```
+
+###### 
+
+
 
 
 
