@@ -120,7 +120,107 @@
   
 ```
 
-###### 
+###### 3非常重要的是一定要在output选项中加入如下一句话：
+```
+  output: {
+  libraryTarget: 'umd'
+}
+```
+
+> 由于通过external提取过的js模块是不会被记录到webapck的chunk信息中，通过libraryTarget可告知我们构建出来的业务模块，当读到了externals中的key时，需   要以umd的方式去获取资源名，否则会有出现找不到module的情况。
+
+### 方案三增强 uglifyPlugin
+
+> uglifyJS凭借基于node开发，压缩比例高，使用方便等诸多优点已经成为了js压缩工具中的首选，但是我们在webpack的构建中观察发现，当webpack build进度走到   80%前后时，会发生很长一段时间的停滞，经测试对比发现这一过程正是uglfiyJS在对我们的output中的bunlde部分进行压缩耗时过长导致，针对这块我们可以使用     webpack-uglify-parallel来提升压缩速度。
+
+###### 从插件源码中可以看到，webpack-uglify-parallel的是实现原理是采用了多核并行压缩的方式来提升我们的压缩速度
+
+使用配置也非常简单，只需要将我们原来webpack中自带的uglifyPlugin配置：
+
+```
+  //old
+  new webpack.optimize.UglifyJsPlugin({
+     exclude:/\.min\.js$/
+     mangle:true,
+     compress: { warnings: false },
+     output: { comments: false }
+  })
+```
+* change
+
+```
+   const os = require('os');
+    const UglifyJsParallelPlugin = require('webpack-uglify-parallel');
+    
+    new UglifyJsParallelPlugin({
+      workers: os.cpus().length,
+      mangle: true,
+      compressor: {
+        warnings: false,
+        drop_console: true,
+        drop_debugger: true
+       }
+    })
+```
+- 目前webpack官方也维护了一个支持多核压缩的UglifyJs插件：uglifyjs-webpack-plugin,使用方式类似，优势在于完全兼容webpack.optimize.UglifyJsPlugin   中的配置，可以通过uglifyOptions写入，因此也做为推荐使用，参考配置如下：
+
+```
+   const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+  new UglifyJsPlugin({
+    uglifyOptions: {
+      ie8: false,
+      ecma: 8,
+      mangle: true,
+      output: { comments: false },
+      compress: { warnings: false }
+    },
+    sourceMap: false,
+    cache: true,
+    parallel: os.cpus().length * 2
+  })
+```
+
+### 四 Tree-shaking & Scope Hoisting
+
+> wepback在2.X和3.X中从rolluo中借鉴了tree-shaking和Scope Hoisting，利用es6的module特性，利用AST对所有引用的模块和方法做了静态分析，从而能有效地   剔除项目中的没有引用到的方法，并将相关方法调用归纳到了独立的webpack_module中，对打包构建的体积优化也较为明显，但是前提是所有的模块写法必须使用ES6   Module进行实现，具体配置参考如下：
+
+```
+   // .babelrc: 通过配置减少没有引用到的方法
+  {
+    "presets": [
+      ["env", {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
+      }],
+      // https://www.zhihu.com/question/41922432
+      ["es2015", {"modules": false}]  // tree-shaking
+    ]
+  }
+
+  // webpack.config: Scope Hoisting
+  {
+    plugins:[
+      // https://zhuanlan.zhihu.com/p/27980441
+      new webpack.optimize.ModuleConcatenationPlugin()
+    ]
+  }
+```
+
+### 适用场景
+
+| 优化手段 | dev | pro |
+| ------ | --------| --------- | 
+| CommonsChunk  | yes  | yes |
+| externals  |  -- |  yes |
+| uglify-parallel  | --  | yes  |
+
+
+
+
+
+
+
 
 
 
