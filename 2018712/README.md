@@ -7,3 +7,7 @@
 ## 浏览器渲染
 
 1. 渲染路径 
+
+## js数字校验
+
+1. 数字校验 <a href="https://github.com/JasonLWY/JasonLWYandNote/blob/master/2018712/jsNumber%E6%A0%A1%E9%AA%8C.md">表单数据校验</a>
