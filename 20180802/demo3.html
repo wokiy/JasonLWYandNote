@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table布局</title>
+	<style>
+        
+		.layout .table {
+			width: 100%;
+			display: table;
+		}
+		 .layout .left-center-right>div {
+                display: table-cell;
+                
+            }
+            .layout .left{
+                width: 300px;
+                background-color: red;
+            }
+
+            .layout .center {
+                background-color: orange;
+                
+            }
+
+            .layout .right {
+                width: 300px;
+                background-color: blue;
+            }
+	</style>
+</head>
+<body>
+	<section class="layout table">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>表格布局</h1>
+                1.这是表格布局解决方案
+                2.这是表格布局解决方案
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网格布局</title>
+	<style>
+		.layout.grid .left-center-right {
+			display: grid;
+			/* 最外层设置为网格模式 */
+			width: 100%;
+            grid-template-rows: 100px;
+            /* 高度 */
+            grid-template-columns: 300px auto 300px;
+            /* 宽度设置 */
+		}
+		.layout .left {
+			background-color: red;
+		}
+		 .layout .center {
+                background-color: orange;
+            }
+
+            .layout .right {
+                background-color: blue;
+            }
+	</style>
+</head>
+<body>
+	
+	<section class="layout grid">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>网格布局</h1>
+                1.这是网格布局解决方案
+                2.这是网格布局解决方案
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+</body>
+</html>

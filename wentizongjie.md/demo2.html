@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位</title>
+	<style>
+		.layout.absolute {
+			height: 100px;
+		}
+		.layout.absolute .left-center-right>div {
+			position: absolute;
+			height: 100px;
+		}
+		.layout.absolute .left {
+			left: 0;
+			width: 300px;
+			background-color: red;
+		}
+		.layout.absolute .center {
+			left: 300px;
+			right: 300px;
+			background-color: pink;
+		}
+		.layout.absolute  .right  {
+			right: 0;
+			width: 300px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	
+<section class="layout absolute">
+	<article class="left-center-right">
+		<div class="left"></div>
+		<div class="center">
+			<h1>绝对定位</h1>
+			决定定位
+		</div>
+		<div class="right"></div>
+	</article>
+</section>
+
+</body>
+</html>

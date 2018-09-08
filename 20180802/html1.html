@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定高三栏布局</title>
+	<style>
+		.left-right-center {
+			height: 400px;
+		}
+        .layout.float .left{
+            float:left;
+            width:300px;
+            height: 100%;
+            background-color:red;
+        }
+        .layout.float .right{
+            float:right;
+            width:300px;
+            height: 100%;
+            background-color:blue;
+        }
+        .layout.float .center {
+        	height: 100%;
+            background-color:orange;
+        }
+    </style>
+</head>
+<body>
+	<!-- 假设已知高度，完成三栏布局，两边栏，定宽，中间栏自适应宽度 -->
+    <section class="layout float">
+        <!-- 利用浮动解决布局时，center必须在最后。 -->
+        <article class="left-right-center">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center">
+                <h1>浮动布局</h1>
+                1.这是浮动布局解决方案
+                2.这是浮动布局解决方案
+            </div>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flexbox布局</title>
+	<style>
+		.layout .left-center-right {
+			height: 300px;
+			display: flex;
+		}
+		.layout .left-center-right  .left {
+			width: 300px;
+			background-color: red;
+			height: 100%;
+		}
+		.layout .left-center-right .center{
+			flex: 1;
+			height: 100%;
+			background-color: blue;
+		}
+		.layout .left-center-right .right  {
+			width: 300px;
+			background-color: pink;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	
+	 <section class="layout flexbox">
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>flexbox</h1>
+                1.这是flexbox布局解决方案
+                2.这是flexbox布局解决方案
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+</body>
+</html>
