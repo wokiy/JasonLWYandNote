@@ -266,10 +266,63 @@
 
 ````
 
+#### 响应式布局
+> 优点： 面对不同的分辨率设备， 灵活性强，能够快捷地解决设备现实适应问题。
+> 缺点： 兼容各种设备时所需工量大，效率低下，代码累赘，会隐藏无用的元素，加载时间延长，其实是一种折中性的设计方案，由于多面元素影响而达不到效果，在一定程度上改变了网站原有的设计布局结构，会出现用户的混淆。
+>
+
+##### 概念
+> 响应式布局主要是通过 css3 的media 来根据，浏览器的宽度来起效对应的样式，最常用的是 
+> mx-width min-width 来做媒体查询的判断条件， @madia(max-width:760px){....},由于
+> 适配到移动端，header  meta name="viewport" content="width=device-width, 
+> inital-scale =1". 
+
+```
+    .btn {
+        width:60px; 
+        display:block;
+        height:30px;
+    }
+    @media(min-width) {
+        .btn{widht:80px}
+    }
+    @media(min-width) {
+        .btn {widht: 100px}
+    }
+```
+
+* dom 渲染会增加用户的流量的消耗，推荐使用boostrap 的渲染过程。
+
+###### css3响应式页面的设计流程
+1. 确定需要兼容的设备类型，屏幕尺寸 {设备类型： 手机，pc 平板。增加手势功能 屏幕的尺寸手机 设备的等的横竖屏}
+2. 制作原型
+3. 测试原型
+4. 视觉设计
+5. 前端实现
+
+#### 移动端布局rem布局的实现
+```
+    (function(){
+            var styleNode = document.createElement("style");
+            var width = document.documentElement.clientWidth/16;
+            styleNode.innerHTML="html{font-size:"+width+"px!important}";
+            document.head.appendChild(styleNode);
+    })();
+
+    //less 计算 rem
+    @rem = 设计稿的尺寸/16rem ;
+```
 
 
 
 2. 构建兼容主流浏览器的页面
+> 浏览器多种多样，但是是主要: IE 内核 和非IE内核‘
+> IE： 内核 360 搜狐， 腾讯
+> 非IE内核： firefox opera safari chrome 
+> 一般兼容： 问题是考虑在 IE6-8  Firefox5+ safari chrome     
+
+
+
 3. 熟悉JavaScript（js三座大山： {原型，原型链，闭包，作用域，异步单线程}）
 4. 前端性能能
 5. css(预处理器： sass less)
