@@ -319,19 +319,54 @@
     }
 ```
 
-
-
 2. 构建兼容主流浏览器的页面
 > 浏览器多种多样，但是是主要: IE 内核 和非IE内核‘
 > IE： 内核 360 搜狐， 腾讯
 > 非IE内核： firefox opera safari chrome 
 > 一般兼容： 问题是考虑在 IE6-8  Firefox5+ safari chrome     
 
+###### 省略号设计
+```
+    <title>超过现实省略号</title>
+    <style>
+        .wrap {
+            width: 100px;
+            margin:0 auto;
+            background-color: pink;
+        }
+        .wrap ul {
+            width: 100%;
+        }
+        .wrap li {
+            list-style: none;
+            white-space: nowrap;
+            width: 60px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>asdasdasdasdasdasdasdasdasdasdadasdsa</li>
+        </ul>
 
+    </div>
+```
 
 3. 熟悉JavaScript（js三座大山： {原型，原型链，闭包，作用域，异步单线程}）
+ 
 4. 前端性能能
+
+
 5. css(预处理器： sass less)
+
+
 6. 前端工程化 组件化 
+
+
 7. git /svn
+
+
 8. github
