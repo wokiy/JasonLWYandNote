@@ -16,10 +16,9 @@
 ### 基本操作图片流程
 
 ![流程图1](./webpackdeomo1/1.png)
-<img src="./webpackdeomo1/2.png"/>
 
-![流程图2](/webpackdeomo1/微信截图_20190111150155.png)
+![流程图2](./webpackdeomo1/2.png)
 
-![3](/webpackdeomo1/微信截图_20190111150203.png)
+![3](./webpackdeomo1/3.png)
 
-![4](/webpackdeomo1/微信截图_20190111150225.png)
+![4](./webpackdeomo1/4.png)
