@@ -14,7 +14,7 @@
 4. 打包命令 webpack 
 
 ### 基本操作图片流程
-![流程图1]('../webpackdeomo1/1.png')
+![流程图1](/webpackdeomo1/1.png)
 
 ![流程图2](/webpackdeomo1/微信截图_20190111150155.png)
 
