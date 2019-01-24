@@ -22,3 +22,8 @@
 ![3](./webpackdeomo1/3.png)
 
 ![4](./webpackdeomo1/4.png)
+
+
+# 待解决的问题
+> 1). webpack本身只能打包JS, 而项目中的css/img等资源如何打包?
+  2). 页面能不能自动引入动态生成的打包JS/CSS

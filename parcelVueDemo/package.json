@@ -1,0 +1,22 @@
+{
+  "name": "parcelVueDemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dist": "^0.1.2",
+    "parcel-plugin-vue": "^1.5.0",
+    "vue": "^2.5.22"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
+  }
+}

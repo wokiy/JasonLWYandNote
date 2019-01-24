@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["console","log","document","write"],"mappings":";;;AAEA,aAFA,QAAA,eACAA,QAAQC,IAAI,4BACZC,SAASC,MAAM","file":"index.map","sourceRoot":"..","sourcesContent":["import './demo.scss';\r\nconsole.log(\"parcel你好sadadasdasdadas！\");\r\ndocument.write(\"p+hhr+hai\");\r\n"]}
