@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue中给data中的对象属性添加一个新的属性时会发生什么</title>
+</head>
+<body>
+	<p>
+		
+
+	</p>
+	<script>
+		/**
+			<template>
+				  <div>
+				    <ul>
+				      <li v-for="value in obj" :key="value">
+				        {{value}}
+				      </li>
+				    </ul>
+				    <button @click="addObjB">添加obj.b</button>
+				  </div>
+				</template>
+				<script>
+				export default {
+				  data () {
+				    return {
+				      obj: {
+				        a: 'obj.a'
+				      }
+				    }
+				  },
+				  methods: {
+				    addObjB () {
+				      this.obj.b = 'obj.b'
+				      console.log(this.obj)
+				    }
+				  }
+				}
+		*/
+
+		//点击button 但是视图并没有刷新
+
+		//原因在vue 创建时候的生命周期中 obj.b并未声明，没有呗vue计算为响应式的属性  自然不会触发视图更新 需要vue 的全局 api $set();
+
+		//设置为响应式属性
+		addObj(){
+			this.$set(this.obj,"b","obj.b")
+			console.log(this.obj);
+		}
+
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+</head>
+<body>
+	
+<p>es6 数组去重</p>
+
+<script>
+	var arr = [2,2,2,3,3,4,5,6,4];
+	var set = new Set(arr);
+	arr = Array.from(set);
+	console.log(arr); 
+
+	//随机打乱数组顺序
+	var arr = [1,2,3,4,5,6,7]
+
+            function ranArr(arr) {
+
+                return arr.sort(
+                	//正序或则反序
+                	function() {                 
+                    return Math.random() > 0.5 ? 1 : -1
+                })
+
+            }         
+
+            console.log(ranArr(arr))
+
+</script>
+
+</body>
+</html>

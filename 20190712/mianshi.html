@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js</title>
+</head>
+<body>
+	
+<h1>js</h1>
+
+<script>
+function isString (obj) {
+	// body... 
+	// return typeof(obj) === "string"? true : false;
+	//对象
+	return obj.constructor === String? true: false;
+}
+var b = 222;
+var a = isString(b);
+console.log(a);
+
+// js 去除空格
+
+//1 ： 正则的方法 使用replace正则匹配的方法
+// 去除所有空格
+// str = str.replace(/\s*/g,""); 
+// 去除两头空格: 
+// str = str.replace(/^\s*|\s*$/g,"");
+// 去除左空格： 
+// str = str.replace( /^\s*/, "");
+// 去除右空格： 
+// str = str.replace(/(\s*$)/g, "")
+
+var test = "111 112 23 ";
+
+var str2 = test.replace(/\s*/g,""); 
+
+console.log(str2);	
+
+// trim两头 去除空格
+var str3 = test.trim();
+console.log(str3)
+
+// 获取 url 参数 (截取遍历的方法)
+
+function showwindowHref() {
+	//获取当前网页的url
+	var sHref = window.loaction.href;
+	// 根据 ? 切割 网址字符串 得到前后两个部分，参数部分在后面
+	var args= sHref.split('?'); 
+	//判断前者是不是等于当前url的全部 是则没有参数携带
+	if(args[0] === sHref){
+		//直接返回
+		return "";
+	}
+	//再次切割后面的字符串
+	var arr = args[1].split('&');
+	//再定义个对象
+	var obj = {};
+	// 开始遍历 split() – 通过将字符串划分成子串，将一个字符串做成一个字符串数组。
+	for(var i=0;i<arr.length;i++) {
+		var arg = arr[i].split('=');
+		obj[arg[0]] = arg[1];
+		//http://www.runoob.com/jquery/misc-trim.html?channelid=12333&name=xiaoming&age=23 
+		//相当于存了三个对象在obj
+		// {
+		// 	channelid: 12333,
+		// 	name: "xiaoming",
+		// 	age:23
+		// }
+	}
+	return obj;
+}
+var href = showwindowHref();
+console.log(href['name']);
+
+
+// dom 节点操作
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组</title>
+</head>
+<body>
+	<p>移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组</p>
+
+	<script>
+		
+		function remove(arr,item){
+          var a = arr.slice(0)
+          for(var i=0;i<arr.length;i++){
+          	if(a[i] == item){
+          		a.splice(i,1);
+          		i--
+          	}
+          }
+          return a
+		}
+     
+   var b= new Array(1,2,2,3,11,2,3,4,5,6)
+
+    console.log(remove(b,3));
+
+    document.write(remove(b,2));
+
+	</script>
+</body>
+</html>

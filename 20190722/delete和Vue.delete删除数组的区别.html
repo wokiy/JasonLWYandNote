@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>delete和Vue.delete删除数组的区别</title>
+</head>
+<body>
+	<p>
+		delete只是被删除的元素变成了 empty/undefined 其他的元素的键值还是不变。
+	</p>
+
+	<p>
+		Vue.delete直接删除了数组 改变了数组的键值
+	</p>
+
+
+	<script>
+		var a = [1,23,4,45];
+		var b = [2,34,666,43];
+		delete a[1];
+		console.log(a);
+		this.$delete(b,1);
+		console.log(b);
+		
+	</script>
+</body>
+</html>

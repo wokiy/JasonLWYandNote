@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue中如何监控某个属性值的变化</title>
+</head>
+<body>
+	
+<p>
+	watch实现：
+	
+	比如现在需要监控data中，obj.a 的变化。Vue中监控对象属性的变化你可以这样：
+	
+	deep属性表示深层遍历，但是这么写会监控obj的所有属性变化，并不是我们想要的效果，所以做点修改
+
+</p>
+
+<p>
+	computed计算属性实现
+	还有一种方法，可以通过computed 来实现，只需要：
+
+</p>
+
+
+<script>
+	// watch: {
+	// 	obj:{
+	// 		handler (newValue,oldValue){
+	// 			console.log('obj')
+	// 		}
+	// 		deep:true
+	// 	}
+	// }
+
+	//watch 监控
+	watch:{
+		'obj.a': 
+		{ 
+			handler(newValue,oldValue){
+			console.log('obj.a');
+			}
+		}
+
+	}
+	//计算属性监控 利用计算属性的特性来实现，当依赖改变时，便会重新计算一个新值。
+
+	computed:{
+		a1() {
+			return this.obj.a;
+		}
+	}
+
+
+</script>
+
+
+</body>
+</html>
