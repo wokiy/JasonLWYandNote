@@ -15,7 +15,7 @@
     "parcel-bundler": "^1.11.0"
   },
   "dependencies": {
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "parcel-plugin-vue": "^1.5.0",
     "vue": "^2.5.22"
   }
